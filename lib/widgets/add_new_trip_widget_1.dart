@@ -20,15 +20,14 @@ class AddNewTripWidget1 extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           mainAxisSize: MainAxisSize.min,
           children: [
             SvgPicture.asset(
               'assets/images/svg/login.svg',
-              fit: BoxFit.scaleDown,
+              fit: BoxFit.cover,
               alignment: Alignment.center,
-              // height: MediaQuery.of(context).size.height * 0.4,
-              // width: MediaQuery.of(context).size.width * 0.1,
+              width: MediaQuery.of(context).size.width * 0.7,
             ),
             Text('Give your itinerary a name.'),
             Padding(
@@ -44,7 +43,7 @@ class AddNewTripWidget1 extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 27,
+              height: MediaQuery.of(context).size.width * 0.2,
             ),
             WizardButtons(
                 controller: controller, cDuration: cDuration, cCurve: cCurve)

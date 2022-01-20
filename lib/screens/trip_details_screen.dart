@@ -31,22 +31,20 @@ class _TripDetailsScreenState extends State<TripDetailsScreen> {
       ),
       drawer: SideBar(),
       body: SingleChildScrollView(
-        child: Expanded(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                TimeFrameWidget(),
-                Divider(),
-                LocationDetailsWidget(),
-                Divider(),
-                WeatherDetailsWidget(),
-                Divider(),
-                CostingWidget(),
-                Divider(),
-                PlacesSugestionWidget(),
-              ],
-            ),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              TimeFrameWidget(),
+              Divider(),
+              LocationDetailsWidget(),
+              Divider(),
+              WeatherDetailsWidget(),
+              Divider(),
+              CostingWidget(),
+              Divider(),
+              PlacesSugestionWidget(),
+            ],
           ),
         ),
       ),

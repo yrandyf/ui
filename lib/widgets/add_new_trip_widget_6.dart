@@ -42,7 +42,7 @@ class _AddNewTripWidget6State extends State<AddNewTripWidget6> {
                       'assets/images/svg/fam.svg',
                       fit: BoxFit.cover,
                       alignment: Alignment.center,
-                      height: 230,
+                      height: MediaQuery.of(context).size.width * 0.5,
                     ),
                   ],
                 ),
@@ -59,7 +59,7 @@ class _AddNewTripWidget6State extends State<AddNewTripWidget6> {
                       onChanged: (value) => setState(() => _headCount = value),
                     ),
                     SizedBox(
-                      height: 25,
+                      height: MediaQuery.of(context).size.width * 0.1,
                     ),
                     Text(
                       'Head Count: $_headCount',

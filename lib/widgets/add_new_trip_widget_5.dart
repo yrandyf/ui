@@ -31,7 +31,7 @@ class AddNewTripWidget5 extends StatelessWidget {
                     'assets/images/svg/road.svg',
                     fit: BoxFit.cover,
                     alignment: Alignment.center,
-                    height: 250,
+                    height: MediaQuery.of(context).size.width * 0.5,
                   ),
                 ],
               ),
@@ -48,6 +48,9 @@ class AddNewTripWidget5 extends StatelessWidget {
                     ),
                   ),
                 ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.width * 0.2,
               ),
               WizardButtons(
                   controller: controller, cDuration: cDuration, cCurve: cCurve),

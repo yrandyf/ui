@@ -66,7 +66,7 @@ class _AddNewTripWidget3State extends State<AddNewTripWidget3> {
                     'assets/images/svg/travel1.svg',
                     fit: BoxFit.cover,
                     alignment: Alignment.center,
-                    height: 250,
+                    height: MediaQuery.of(context).size.width * 0.5,
                   ),
                 ],
               ),
@@ -114,6 +114,9 @@ class _AddNewTripWidget3State extends State<AddNewTripWidget3> {
                     )
                   ],
                 ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.width * 0.01,
               ),
               WizardButtons(
                   controller: widget.controller,

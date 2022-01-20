@@ -66,7 +66,7 @@ class _AddNewTripWidget2State extends State<AddNewTripWidget2> {
                   'assets/images/svg/signup.svg',
                   fit: BoxFit.cover,
                   alignment: Alignment.center,
-                  height: 250,
+                  height: MediaQuery.of(context).size.width * 0.5,
                 ),
               ],
             ),
@@ -112,6 +112,9 @@ class _AddNewTripWidget2State extends State<AddNewTripWidget2> {
                   )
                 ],
               ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.width * 0.01,
             ),
             WizardButtons(
                 controller: widget.controller,

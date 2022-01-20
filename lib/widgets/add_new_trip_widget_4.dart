@@ -31,7 +31,7 @@ class AddNewTripWidget4 extends StatelessWidget {
                     'assets/images/svg/loc.svg',
                     fit: BoxFit.cover,
                     alignment: Alignment.center,
-                    height: 250,
+                    height: MediaQuery.of(context).size.width * 0.5,
                   ),
                 ],
               ),
@@ -52,6 +52,9 @@ class AddNewTripWidget4 extends StatelessWidget {
               TextButton(
                 onPressed: () {},
                 child: Text('Get Current Location'),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.width * 0.2,
               ),
               WizardButtons(
                   controller: controller, cDuration: cDuration, cCurve: cCurve),
