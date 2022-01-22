@@ -6,7 +6,7 @@ import '/widgets/side_bar.dart';
 import 'edit_profile_screen.dart';
 
 class MainScreen extends StatefulWidget {
-  static const routeName = '/add-new';
+  static const routeName = '/main';
 
   const MainScreen({Key? key}) : super(key: key);
 

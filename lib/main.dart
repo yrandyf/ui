@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
         TripDetailsScreen.routeName: (ctx) => TripDetailsScreen(),
         EditTripScreen.routeName: (ctx) => EditTripScreen(),
         EditProfileScreen.routeName: (ctx) => EditProfileScreen(),
+        MainScreen.routeName: (ctx) => MainScreen(),
       },
     );
   }
