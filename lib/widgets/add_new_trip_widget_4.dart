@@ -1,5 +1,7 @@
-import '/widgets/wizard_buttons.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:geocoding/geocoding.dart';
+import '/widgets/wizard_buttons.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class AddNewTripWidget4 extends StatelessWidget {
@@ -12,6 +14,39 @@ class AddNewTripWidget4 extends StatelessWidget {
   var cDuration;
   var cCurve;
   final _formKey = GlobalKey<FormState>();
+  final _locationTextController = TextEditingController();
+
+  static Future<Position> getLocationCoordinates() async {
+    bool serviceEnabled;
+    LocationPermission permission;
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      await Geolocator.openLocationSettings();
+      return Future.error('Location services unavailable');
+    }
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        return Future.error('Location permission denied');
+      }
+    }
+    if (permission == LocationPermission.deniedForever) {
+      return Future.error('Location permission permanently denied');
+    }
+    return await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high);
+  }
+
+  static Future<String> getAddressFromCoordinates(Position position) async {
+    String cityName;
+    List<Placemark> placemarks =
+        await placemarkFromCoordinates(position.latitude, position.longitude);
+    Placemark place = placemarks[0];
+    cityName = '${place.locality}';
+    print(place.locality);
+    return cityName;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +76,7 @@ class AddNewTripWidget4 extends StatelessWidget {
                 child: Form(
                   key: _formKey,
                   child: TextFormField(
+                    controller: _locationTextController,
                     decoration: const InputDecoration(
                       icon: const Icon(Icons.location_on_rounded),
                       hintText: 'Start Location',
@@ -50,8 +86,13 @@ class AddNewTripWidget4 extends StatelessWidget {
                 ),
               ),
               TextButton(
-                onPressed: () {},
-                child: Text('Get Current Location'),
+                onPressed: () async {
+                  Position position = await getLocationCoordinates();
+                  String cityName = await getAddressFromCoordinates(position);
+
+                  _locationTextController.text = cityName;
+                },
+                child: const Text('Get Current Location'),
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.width * 0.2,

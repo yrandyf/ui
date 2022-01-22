@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 import 'screens/add_new_trip_screen.dart';
 import 'screens/edit_profile_screen.dart';
 import 'screens/edit_trip_screen.dart';
-import 'screens/login_screen.dart';
 import 'screens/main_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {
